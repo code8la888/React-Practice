@@ -1,43 +1,24 @@
-import { WiDaySunny, WiDayCloudyGusts } from "react-icons/wi";
-import Button from "./Button";
+import Accordion from "./components/Accordion";
 
 function App() {
-  const handleClick = () => {
-    console.log("click!!!");
-  };
-
-  return (
-    <div>
-      <div>
-        <Button primary onClick={handleClick} className="mb-5">
-          加入收藏
-        </Button>
-      </div>
-      <div>
-        <Button secondary rounded>
-          <WiDaySunny />
-          加入購物車
-        </Button>
-      </div>
-      <div>
-        <Button success outline>
-          <WiDayCloudyGusts />
-          再見
-        </Button>
-      </div>
-      <div>
-        <Button danger outline rounded>
-          歡迎回來
-        </Button>
-      </div>
-      <div>
-        <Button warning rounded>
-          <WiDayCloudyGusts />
-          注意!!
-        </Button>
-      </div>
-    </div>
-  );
+  const items = [
+    {
+      id: 1,
+      label: "Can I use React on a project?",
+      content: "You can use React on any project you want.",
+    },
+    {
+      id: 2,
+      label: "Can I use javascript on a project",
+      content: "You can use javascript on any project you want.",
+    },
+    {
+      id: 3,
+      label: "Can I use CSS on a project",
+      content: "You can use CSS on any project you want.",
+    },
+  ];
+  return <Accordion items={items} />;
 }
 
 export default App;
