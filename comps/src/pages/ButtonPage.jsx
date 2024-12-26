@@ -2,9 +2,7 @@ import { WiDaySunny, WiDayCloudyGusts } from "react-icons/wi";
 import Button from "../components/Button";
 
 function ButtonPage() {
-  const handleClick = () => {
-    console.log("點擊!!!!");
-  };
+  const handleClick = () => {};
 
   return (
     <div>
