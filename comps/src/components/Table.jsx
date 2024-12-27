@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Fragment } from "react";
 
 function Table({ data, config, keyFn }) {
