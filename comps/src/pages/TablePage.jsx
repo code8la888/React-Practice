@@ -7,6 +7,7 @@ function TablePage() {
     { name: "Aple", color: "bg-red-500", score: 3 },
     { name: "Banana", color: "bg-yellow-500", score: 2 },
     { name: "Lime", color: "bg-green-500", score: 1 },
+    { name: "Cherry", color: "bg-red-700", score: 4 },
   ];
 
   const config = [
@@ -22,7 +23,7 @@ function TablePage() {
     {
       label: "Score",
       render: (fruit) => fruit.score,
-      header: () => <th className="bg-red-500">Score</th>,
+      header: () => <th>Score</th>,
       sortValue: (fruit) => fruit.score,
     },
   ];
