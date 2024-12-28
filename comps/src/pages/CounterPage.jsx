@@ -4,30 +4,35 @@ import Panel from "../components/Panel";
 const ICREMENT_COUNT = "increment";
 const DECREMENT_COUNT = "decrement";
 const SET_VALUE_TO_ADD = "set_value_to_add";
+const SUBMIt_FORM = "submit_form";
 
 const reducer = (state, action) => {
-  if (action.type === ICREMENT_COUNT) {
-    return {
-      ...state,
-      count: state.count + 1,
-    };
-  }
+  switch (action.type) {
+    case ICREMENT_COUNT:
+      return {
+        ...state,
+        count: state.count + 1,
+      };
+    case DECREMENT_COUNT:
+      return {
+        ...state,
+        count: state.count - 1,
+      };
+    case SUBMIt_FORM:
+      return {
+        ...state,
+        count: state.count + state.valueToAdd,
+        valueToAdd: 0,
+      };
+    case SET_VALUE_TO_ADD:
+      return {
+        ...state,
+        valueToAdd: action.payload,
+      };
 
-  if (action.type === SET_VALUE_TO_ADD) {
-    return {
-      ...state,
-      valueToAdd: action.payload,
-    };
+    default:
+      return state;
   }
-
-  if (action.type === DECREMENT_COUNT) {
-    return {
-      ...state,
-      count: state.count - 1,
-    };
-  }
-
-  return state;
 };
 
 function CounterPage({ initialCount }) {
@@ -47,14 +52,15 @@ function CounterPage({ initialCount }) {
   const handleChange = (event) => {
     const value = parseInt(event.target.value) || 0;
     dispatch({
-      type: VALUE_TO_ADD,
+      type: SET_VALUE_TO_ADD,
       payload: value,
     });
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    // setCount(count + valueToAdd);
-    // setValueToAdd(0);
+    dispatch({
+      type: SUBMIt_FORM,
+    });
   };
   return (
     <Panel className="m-3">
